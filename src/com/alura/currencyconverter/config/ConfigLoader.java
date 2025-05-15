@@ -1,4 +1,4 @@
-package main.resources;
+package com.alura.currencyconverter.config;
 
 import java.io.IOException;
 import java.io.InputStream;

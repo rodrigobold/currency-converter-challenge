@@ -1,6 +1,6 @@
 package com.alura.currencyconverter.service;
 
-import main.resources.ConfigLoader;
+import com.alura.currencyconverter.config.ConfigLoader;
 
 import java.io.IOException;
 import java.net.URI;
