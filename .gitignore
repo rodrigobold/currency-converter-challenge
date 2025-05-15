@@ -21,3 +21,6 @@ build/
 ### System files ###
 .DS_Store
 Thumbs.db
+
+### Configuration files (Sensitive) ###
+config.properties
