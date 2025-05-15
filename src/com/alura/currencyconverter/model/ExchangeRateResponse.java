@@ -1,13 +1,16 @@
 package com.alura.currencyconverter.model;
 
+// Classe que representa a resposta da API com a taxa de conversão
 public class ExchangeRateResponse {
-    private double conversion_result;
+    private double conversion_rate;
 
-    public double getConversion_result() {
-        return conversion_result;
+    // Getter para obter a taxa de conversão
+    public double getConversion_rate() {
+        return conversion_rate;
     }
 
-    public void setConversion_result(double conversion_result) {
-        this.conversion_result = conversion_result;
+    // Setter (pode ser opcional, dependendo do uso)
+    public void setConversion_rate(double conversion_rate) {
+        this.conversion_rate = conversion_rate;
     }
 }
