@@ -1,0 +1,23 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+### Compiled files ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Build tools ###
+# Maven
+target/
+# Gradle
+build/
+.gradle/
+
+### System files ###
+.DS_Store
+Thumbs.db
