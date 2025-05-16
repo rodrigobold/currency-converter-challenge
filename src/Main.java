@@ -23,8 +23,13 @@ public class Main {
 
             option = scanner.nextInt();
 
-            // Por enquanto apenas exibindo a opção selecionada
             if (option >= 1 && option <= 6) {
+                String[] currencies = getCurrenciesByOption(option);
+                System.out.print("Digite o valor que deseja converter: ");
+                double amount = scanner.nextDouble();
+                System.out.printf("Você quer converter %.2f de %s para %s%n", amount, currencies[0], currencies[1]);
+
+
                 System.out.println();
                 System.out.println("╔═══════════════════════════════════════════════╗");
                 System.out.println("║         ✅ Opção selecionada: " + option + "                           ║");
@@ -54,4 +59,17 @@ public class Main {
         System.out.println("╚═══════════════════════════════════════════════╝");
         scanner.close();
     }
+
+    public static String[] getCurrenciesByOption(int option) {
+        return switch(option) {
+            case 1 -> new String[]{"USD", "ARS"};
+            case 2 -> new String[]{"ARS", "USD"};
+            case 3 -> new String[]{"USD", "BRL"};
+            case 4 -> new String[]{"BRL", "USD"};
+            case 5 -> new String[]{"USD", "COP"};
+            case 6 -> new String[]{"COP", "USD"};
+            default -> null;
+        };
+    }
+
 }
