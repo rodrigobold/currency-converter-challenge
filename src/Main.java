@@ -53,9 +53,20 @@ public class Main {
 
     private static void executeConversion(int option, Scanner scanner) {
         String[] currencies = getCurrenciesByOption(option);
-        System.out.print("Digite o valor que deseja converter: ");
+        System.out.println("╔═══════════════════════════════════════════════╗");
+        System.out.println("║   📥 Digite o valor que deseja converter:     ║");
+        System.out.println("╚═══════════════════════════════════════════════╝");
         double amount = scanner.nextDouble();
-        System.out.printf("Você quer converter %.2f de %s para %s%n", amount, currencies[0], currencies[1]);
+        System.out.println("╔═══════════════════════════════════════════════╗");
+        System.out.println("║         ✅ Opção selecionada: " + option + "               ║");
+        System.out.println("╚═══════════════════════════════════════════════╝");
+        System.out.println("════════════════════════════════════════════════");
+        System.out.printf ("  🔄 Você quer converter %.2f de %-3s para %-4s%n", amount, currencies[0], currencies[1]);
+        System.out.println("════════════════════════════════════════════════");
+        System.out.println("╔═══════════════════════════════════════════════╗");
+        System.out.println("║ Aguarde enquanto processamos a conversão...   ║");
+        System.out.println("╚═══════════════════════════════════════════════╝");
+
 
         ExchangeRateService service = new ExchangeRateService();
         try {
@@ -63,19 +74,16 @@ public class Main {
             Gson gson = new Gson();
             ExchangeRateResponse response = gson.fromJson(json, ExchangeRateResponse.class);
             double convertedValue = response.getConversion_rate() * amount;
-            System.out.printf("Valor convertido: %.2f %s = %.2f %s%n", amount, currencies[0], convertedValue, currencies[1]);
+            System.out.println();
+            System.out.println("════════════════════════════════════════════════");
+            System.out.printf ("  💱 Valor convertido: %.2f %-3s = %.2f %-3s   %n", amount, currencies[0], convertedValue, currencies[1]);
+            System.out.println("════════════════════════════════════════════════");
+
             System.out.println("Resposta da API JSON: " + json);
         } catch (IOException | InterruptedException e) {
             System.err.println("Erro ao buscar taxa de câmbio: " + e.getMessage());
         }
 
-        System.out.println();
-        System.out.println("╔═══════════════════════════════════════════════╗");
-        System.out.println("║         ✅ Opção selecionada: " + option + "                           ║");
-        System.out.println("╠═══════════════════════════════════════════════╣");
-        System.out.println("║ Aguarde enquanto processamos a conversão...   ║");
-        System.out.println("╚═══════════════════════════════════════════════╝");
-        System.out.println();
     }
 
     public static String[] getCurrenciesByOption(int option) {
