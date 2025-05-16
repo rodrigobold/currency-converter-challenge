@@ -46,7 +46,7 @@ public class Main {
 
         System.out.println();
         System.out.println("╔═══════════════════════════════════════════════╗");
-        System.out.println("║     ✅ Programa encerrado. Obrigado por usar! ║");
+        System.out.println("║            ✅ Programa encerrado.             ║");
         System.out.println("╚═══════════════════════════════════════════════╝");
         scanner.close();
     }
