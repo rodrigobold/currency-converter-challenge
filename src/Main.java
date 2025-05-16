@@ -1,4 +1,6 @@
+import com.alura.currencyconverter.model.ExchangeRateResponse;
 import com.alura.currencyconverter.service.ExchangeRateService;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -36,10 +38,15 @@ public class Main {
                 String json = null;
                 try {
                     json = service.getRate(currencies[0], currencies[1]);
+                    Gson gson = new Gson();
+                    ExchangeRateResponse response = gson.fromJson(json, ExchangeRateResponse.class);
+                    double convertedValue = response.getConversion_rate() * amount;
+                    System.out.printf("Valor convertido: %.2f %s = %.2f %s%n", amount, currencies[0], convertedValue, currencies[1]);
                     System.out.println("Resposta da API JSON: " + json);
                 } catch (IOException | InterruptedException e) {
-                    System.err.println("Erro ao buscar taxa de câmbio: " + e.getMessage());
+                    System.err.println("Erro ao buscar a taxa de câmbio: " + e.getMessage());
                 }
+
 
 
                 System.out.println();
