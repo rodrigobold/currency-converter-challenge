@@ -1,3 +1,6 @@
+import com.alura.currencyconverter.service.ExchangeRateService;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -28,6 +31,15 @@ public class Main {
                 System.out.print("Digite o valor que deseja converter: ");
                 double amount = scanner.nextDouble();
                 System.out.printf("Você quer converter %.2f de %s para %s%n", amount, currencies[0], currencies[1]);
+
+                ExchangeRateService service = new ExchangeRateService();
+                String json = null;
+                try {
+                    json = service.getRate(currencies[0], currencies[1]);
+                    System.out.println("Resposta da API JSON: " + json);
+                } catch (IOException | InterruptedException e) {
+                    System.err.println("Erro ao buscar taxa de câmbio: " + e.getMessage());
+                }
 
 
                 System.out.println();
